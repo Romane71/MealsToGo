@@ -6,17 +6,26 @@ import { Card } from 'react-native-paper';
 // always have the px with styled components
 
 const RestaurantCard = styled(Card)`
-backgroundColor: white;`;
+background-color: white;`;
 
 const RestaurantCardCover = styled(Card.Cover)` 
 padding: 20px;    
-backgroundColor: white;
+background-color: white;
 `;
 
 const Title = styled.Text`
 padding: 16px;
-color: black;
+color: ${(props) => props.theme.colors.ui.success};
+font-size: ${(props) => props.theme.fontSizes.body};
 `;
+
+
+
+const Info = styled.View`
+padding: ${(props) => props.theme.space[3]}
+`
+
+
 
 export const RestaurantInfoCard = ({ restaurant  = {} }) => {
 
@@ -36,7 +45,9 @@ export const RestaurantInfoCard = ({ restaurant  = {} }) => {
 return (
     <RestaurantCard elevation={5} >
     <RestaurantCardCover key={name}  source={{uri: photos[0] }} />
+    <Info>
  <Title>{name}</Title>
+ </Info>
     </RestaurantCard>
 );
 };
