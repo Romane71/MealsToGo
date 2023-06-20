@@ -5,6 +5,8 @@ import { Card } from 'react-native-paper';
 
 // always have the px with styled components
 
+
+
 const RestaurantCard = styled(Card)`
 background-color: white;`;
 
@@ -13,13 +15,17 @@ padding: 20px;
 background-color: white;
 `;
 
-const Title = styled.Text`
-padding: 16px;
-color: ${(props) => props.theme.colors.ui.success};
-font-size: ${(props) => props.theme.fontSizes.body};
+const Address = styled(Text)`
+font-size: ${(props) => props.theme.fontSizes.caption};
+
 `;
 
 
+const Title = styled.Text`
+color: ${(props) => props.theme.colors.ui.primary};
+font-size: ${(props) => props.theme.fontSizes.body};
+font-family: Georgia;
+`;
 
 const Info = styled.View`
 padding: ${(props) => props.theme.space[3]}
@@ -30,12 +36,12 @@ padding: ${(props) => props.theme.space[3]}
 export const RestaurantInfoCard = ({ restaurant  = {} }) => {
 
     const {
-    name = 'Some Restaurant',
+    name = 'Cafe de Paris',
     icon,
     photos = [
         "https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg"
     ],
-    address = "100 random street",
+    address = "5 Avenue des Champs Elysees. Paris",
     isOpenNow = true,
     rating = 4,
     isClosedTemporary,
@@ -47,6 +53,7 @@ return (
     <RestaurantCardCover key={name}  source={{uri: photos[0] }} />
     <Info>
  <Title>{name}</Title>
+ <Address>{address}</Address>
  </Info>
     </RestaurantCard>
 );
