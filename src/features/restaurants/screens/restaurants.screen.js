@@ -21,6 +21,8 @@ padding: ${(props) =>  props.theme.space[3]};
 `;
 
 export const RestaurantsScreen = () => (
+
+
  <SafeArea >
   
   <SearchContainer>
@@ -31,5 +33,6 @@ export const RestaurantsScreen = () => (
   </RestaurantListContainer>
   
  </SafeArea>
+
 );
 
