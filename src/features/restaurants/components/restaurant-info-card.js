@@ -5,6 +5,7 @@ import { Card } from 'react-native-paper';
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
+import { Spacer } from '../../../components/spacers/spacer.components';
 
 // always have the px with styled components
 
@@ -56,6 +57,7 @@ justify-content: flex-end;
 export const RestaurantInfoCard = ({ restaurant  = {} }) => {
 
     const {
+
     name = 'Cafe de Paris',
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
     photos = [
@@ -64,7 +66,7 @@ export const RestaurantInfoCard = ({ restaurant  = {} }) => {
     address = "5 Avenue des Champs Elysees. Paris",
     isOpenNow = true,
     rating = 4,
-    isClosedTemporary,
+    isClosedTemporary = true,
 
 } = restaurant;
 
@@ -86,13 +88,15 @@ return (
   <SectionEnd>
  {isClosedTemporary && (
     <Text variant="label" style={{color: "red"}}>
-        ClOSED TEMPORARILY
+        CLOSED TEMPORARILY
     </Text>
  )}
- <View style={{ paddingLeft: 16}} />
- {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
- <View style={{ paddingLeft: 16 }} />
+<Spacer position= "left" size="medium">
+ {isOpenNow && <SvgXml xml={open} width={40} height={20} />}
+ </Spacer>
+<Spacer position="left" size="large">
 <Image style={{width: 15, height: 15}} source={{ uri: icon}} />
+</Spacer>
   </SectionEnd>
   </Section>
  <Address>{address}</Address>
