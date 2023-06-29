@@ -9,6 +9,7 @@ import { Search } from "../components/search.component";
 import {RestaurantInfoCard} from '../components/restaurant-info-card';
 
 
+
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
     padding: 16,
@@ -26,6 +27,8 @@ const LoadingContainer = styled.View`
 
 export const RestaurantsScreen = ( {navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
+  //const { favourites } = useContext(FavouritesContext);
+
 
   return (
     <SafeArea>

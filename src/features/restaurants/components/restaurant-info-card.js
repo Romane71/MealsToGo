@@ -12,6 +12,7 @@ import { RestaurantCard,
      Rating, 
      Icon,
      Address } from './restaurant-info-card.styles';
+     import { Favourite } from '../../../components/favourites/favourite.component';
 // always have the px with styled components
 
 
@@ -37,6 +38,7 @@ const ratingArray = Array.from(new Array(Math.floor(rating)));
 
 return (
     <RestaurantCard elevation={5} >
+        <Favourite />
     <RestaurantCardCover key={name}  source={{uri: photos[0] }} />
     <Info>
 <Text variant="label">{name}</Text>
